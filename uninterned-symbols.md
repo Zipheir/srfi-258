@@ -88,4 +88,6 @@ Notes: gensym may take a symbol-or-string prefix argument.
 
 # TinySCHEME
 
-No uninterned symbols. gensym returns an interned symbol.
+* gensym (result is interned)
+
+Notes: No uninterned symbols.
