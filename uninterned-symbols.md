@@ -73,7 +73,8 @@ None.
 Notes: generate-uninterned-symbol is functionally equivalent to the
 gensym procedures of other implementations. It may take an *object*
 argument which is used several ways. A string or symbol argument is
-used as a prefix.
+used as a prefix. No way to tell interned and uninterned symbols
+apart.
 
 
 # Racket
