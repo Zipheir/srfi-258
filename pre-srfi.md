@@ -2,10 +2,10 @@
 
 # Abstract
 
-Gensyms are symbols that are very likely to be unique. They have several uses
-in macro programming. For example, they can be used to allow interacting
+Gensyms are symbols that are very likely to be unique. They
+can be used in macro programming to allow interacting
 macros to communicate through a hidden identifier, or
-as lightweight, unique, named values. Gensyms subsume uninterned
+as lightweight, reliably-unique, named values. Gensyms subsume uninterned
 symbols, which are provided by some Scheme implementations.
 
 # Issues
@@ -42,7 +42,7 @@ the same (in the sense of 'symbol=?' and 'eq?') as any other symbol.
 
 Example:
 
-(generate-uninterned-symbol "foo-") =>
+(gensym "foo-") =>
   |foo-6f1c286463b144ff864af5247a0df|
 
 
