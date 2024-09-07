@@ -20,12 +20,18 @@ are also part of the ANSI Common Lisp standard. The well-known
 is ubiquitous (dating back to at least LISP 1.5), although its
 behavior varies widely.
 
+This SRFI is an attempt to reconcile the different strategies that
+Scheme implementations use to create unique (or at least reliably
+unique) symbols. We do not require gensyms to be “uninterned”, nor do
+we specify a scheme for ensuring that each gensym has a “fresh”
+name.
+
 Gensyms are mainly useful in macro programming. In
 languages without hygienic macro systems, they are used to create
 local identifiers which are "invisible" to other code. With hygienic
 systems, this is obsolete, but a related technique
-is still relevant: the "invisible" identifiers created from uninterned
-symbols can be used to pass information between macros.
+is still relevant: the "invisible" identifiers created from gensyms
+can be used to pass information between macros.
 
 [Example...]
 
