@@ -43,7 +43,7 @@ the same (in the sense of 'symbol=?' and 'eq?') as any other symbol.
 Example:
 
 (generate-uninterned-symbol "foo-") =>
-  #<foo-6f1c286463b144ff864af5247a0df>
+  |foo-6f1c286463b144ff864af5247a0df|
 
 
 # Implementation
