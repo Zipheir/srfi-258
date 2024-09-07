@@ -48,9 +48,11 @@ Example:
 
 # Implementation
 
-A portable implementation of gensyms is not possible.
-[list of similar implementations TODO]
-
+The portable sample implementation uses `random-integer` from
+[SRFI 27](https://srfi.schemers.org/srfi-27/) combined with
+`current-jiffy` from `(scheme time)` to create reliably-unique
+gensym names. A portable implementation that produces
+*guaranteed*-unique symbols is not possible.
 
 # Acknowledgments
 
