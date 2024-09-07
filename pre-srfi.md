@@ -12,6 +12,8 @@ symbols, which are provided by some Scheme implementations.
 
 # Rationale
 
+[Briefly explain "internedness".]
+
 Most Scheme implementations provide uninterned symbols, and they
 are also part of the ANSI Common Lisp standard. The well-known
 `gensym` procedure, which often creates a new uninterned symbol,
@@ -39,6 +41,11 @@ Returns a symbol. If *string* is provided, the symbol's name is
 prefixed with *string*; the name is otherwise unspecified. The
 resulting symbol is very likely to be unique; it should not be
 the same (in the sense of 'symbol=?' and 'eq?') as any other symbol.
+
+It is unspecified whether a symbol created by `gensym` preserves the
+write/read invariance described in R7RS §6.5. A gensym may not “read
+back in” as the same symbol, and ortable code should not assume that it
+will.
 
 Example:
 
