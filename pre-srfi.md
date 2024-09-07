@@ -59,6 +59,90 @@ Example:
   |foo-6f1c286463b144ff864af5247a0df|
 
 
+## Prior Art
+
+### ChezScheme
+
+Chez provides interned gensyms which can be
+distinguished by the `gensym?` predicate. Chez's gensyms
+have "pretty" and "unique" names. The former are created
+immediately and the latter are generated lazily using an internal
+prefix and counter, which are accessible through parameter objects.
+gensym->unique-string returns the unique name of a gensym.
+
+Chez's `gensym` procedure takes optional *pretty-name* and
+*unique-name* string arguments. The latter argument allows the unique
+name of one gensym to be given to another; thus, distinct gensyms that
+are equal in the sense of `symbol=?` can be created in Chez.
+
+
+### CHICKEN
+
+CHICKEN provides uninterned symbols, created by `gensym` or
+`string->uninterned-symbol`. CHICKEN's `gensym` takes an
+optional *prefix* argument, which may be a string or a symbol.
+
+
+### Cyclone
+
+Cyclone provides a (currently undocumented) `gensym` procedure.
+
+
+### Gambit
+
+* gensym (result is uninterned)
+* string->uninterned-symbol
+* uninterned-symbol?
+
+Notes: gensym may take a symbol prefix argument.
+string->uninterned-symbol may take a non-negative integer *hash*
+argument.
+
+
+### Guile
+
+* gensym (creates an interned symbol)
+* make-symbol (creates an uninterned symbol)
+* symbol-interned?
+
+Notes: make-symbol takes a (required) string prefix argument. gensym
+(which creates an interned symbol that is "likely to be unique") may
+also take a string prefix.
+
+
+### Kawa
+
+None.
+
+
+### MIT/GNU Scheme
+
+* generate-uninterned-symbol
+* string->uninterned-symbol
+
+Notes: generate-uninterned-symbol is functionally equivalent to the
+gensym procedures of other implementations. It may take an *object*
+argument which is used in several ways. A string or symbol argument is
+used as a prefix. No way to tell interned and uninterned symbols
+apart.
+
+
+### Racket
+
+* string->uninterned-symbol
+* gensym (result is uninterned)
+* symbol-interned?
+
+Notes: gensym may take a symbol-or-string prefix argument.
+
+
+### TinySCHEME
+
+* gensym (result is interned)
+
+Notes: No uninterned symbols.
+
+
 # Implementation
 
 The portable sample implementation uses `random-integer` from
