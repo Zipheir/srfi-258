@@ -41,10 +41,11 @@ The words “should not” are to be interpreted as described in RFC 2119.
 
 ## Procedures
 
-(gensym [string]) -> symbol
+(gensym [prefix]) -> symbol
 
-Returns a symbol. If *string* is provided, the symbol's name is
-prefixed with *string*; the name is otherwise unspecified. The
+Returns a symbol. *prefix* may be a string or a symbol. If *prefix* is
+provided, it (or its name, as given by `symbol->string`) is prefixed
+to the name of the returned symbol; the name is otherwise unspecified. The
 resulting symbol is very likely to be unique; it should not be
 the same (in the sense of 'symbol=?' and 'eq?') as any other symbol.
 

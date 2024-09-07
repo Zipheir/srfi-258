@@ -9,11 +9,11 @@
 
     (define gensym
       (case-lambda
-        (() (gensym ""))
+        (() (gensym "g"))
         ((prefix)
-         (let* ((p (if (not (equal? prefix ""))
-                       (string-append prefix "-")
-                       ""))
+         (let* ((p (cond ((symbol? prefix) (symbol->string prefix))
+                         ((string? prefix) prefix)
+                         (else (error "invalid argument" prefix))))
                 (name (string-append
                        p
                        (number->string (current-jiffy))
