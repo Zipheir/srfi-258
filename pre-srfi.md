@@ -50,7 +50,7 @@ the same (in the sense of 'symbol=?' and 'eq?') as any other symbol.
 
 It is unspecified whether a symbol created by `gensym` preserves the
 write/read invariance described in R7RS §6.5. A gensym may not “read
-back in” as the same symbol, and ortable code should not assume that it
+back in” as the same symbol, and portable code should not assume that it
 will.
 
 Example:
