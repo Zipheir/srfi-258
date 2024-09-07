@@ -68,7 +68,7 @@ distinguished by the `gensym?` predicate. Chez's gensyms
 have "pretty" and "unique" names. The former are created
 immediately and the latter are generated lazily using an internal
 prefix and counter, which are accessible through parameter objects.
-gensym->unique-string returns the unique name of a gensym.
+`gensym->unique-string` returns the unique name of a gensym.
 
 Chez's `gensym` procedure takes optional *pretty-name* and
 *unique-name* string arguments. The latter argument allows the unique
@@ -90,29 +90,17 @@ Cyclone provides a (currently undocumented) `gensym` procedure.
 
 ### Gambit
 
-* gensym (result is uninterned)
-* string->uninterned-symbol
-* uninterned-symbol?
-
-Notes: gensym may take a symbol prefix argument.
-string->uninterned-symbol may take a non-negative integer *hash*
-argument.
+Gambit provides uninterned symbols created by `gensym` or
+`string->uninterned-symbol`. `gensym` accepts a symbol prefix argument.
 
 
 ### Guile
 
-* gensym (creates an interned symbol)
-* make-symbol (creates an uninterned symbol)
-* symbol-interned?
-
-Notes: make-symbol takes a (required) string prefix argument. gensym
-(which creates an interned symbol that is "likely to be unique") may
-also take a string prefix.
-
-
-### Kawa
-
-None.
+Guile provides uninterned symbols, but these are not created by
+`gensym`, which returns an interned symbol. Uninterned symbols are
+created with `make-symbol`, instead. Guile's `gensym` "creates a new
+symbol with a name constructed from a prefix and a counter value" and
+accepts an optional prefix argument.
 
 
 ### MIT/GNU Scheme
@@ -129,18 +117,15 @@ apart.
 
 ### Racket
 
-* string->uninterned-symbol
-* gensym (result is uninterned)
-* symbol-interned?
-
-Notes: gensym may take a symbol-or-string prefix argument.
+Racket provides a `gensym` procedure which returns an uninterned
+symbol. It accepts an optional prefix argument, which may be a string
+or a symbol.
 
 
 ### TinySCHEME
 
-* gensym (result is interned)
-
-Notes: No uninterned symbols.
+TinySCHEME provides a `gensym` procedure which returns an interned
+symbol.
 
 
 # Implementation
