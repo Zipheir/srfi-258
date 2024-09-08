@@ -37,4 +37,12 @@ leftstring A10 = "Loko"
 leftstring C10 = "Yes"
 leftstring D10 = "No"
 leftstring E10 = "No"
-goto A11 A0
+leftstring A11 = "Bigloo"
+leftstring C11 = "Yes"
+leftstring D11 = "Yes"
+leftstring E11 = "String or symbol"
+leftstring A12 = "Ikarus"
+leftstring C12 = "Yes"
+leftstring D12 = "Yes"
+leftstring E12 = "String"
+goto A13 A0
