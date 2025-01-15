@@ -19,6 +19,15 @@ behavior varies widely.
 
 The words “should not” are to be interpreted as described in RFC 2119.
 
+An uninterned symbol is a symbol (in the sense of `symbol?`) which is
+not identical (in the sense of `symbol=?`) with any other symbol, even
+a symbol with the same name.
+
+Uninterned symbols do not support the write/read invariance described
+in R7RS section 6.5: if an uninterned symbol is written out with
+`write` and then read back in, the resulting symbol is not identical
+(in the sense of `symbol=?`) to the original symbol.
+
 ## Procedures
 
 (string->uninterned-symbol string) -> uninterned-symbol
