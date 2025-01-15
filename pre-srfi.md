@@ -2,8 +2,13 @@
 
 # Abstract
 
+An uninterned symbol is not the same as any other symbol, even one
+with the same name. These symbols are useful in macro programming and
+in other situations where guaranteed-unique names are needed.
 
 # Issues
+
+None at present.
 
 # Rationale
 
@@ -16,8 +21,6 @@ is ubiquitous (dating back to at least LISP 1.5), although its
 behavior varies widely.
 
 # Specification
-
-The words “should not” are to be interpreted as described in RFC 2119.
 
 An uninterned symbol is a symbol (in the sense of `symbol?`) which is
 not identical (in the sense of `symbol=?`) with any other symbol, even
@@ -106,6 +109,9 @@ symbol.
 
 # Implementation
 
+A portable implementation of uninterned symbols is impossible. See the
+table above for a list of Scheme implementations that provide
+uninterned symbols and `string->uninterned-symbol`.
 
 # Acknowledgments
 
