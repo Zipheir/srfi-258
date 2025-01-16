@@ -9,6 +9,15 @@ SPDX-License-Identifier: MIT
     <title>SRFI ###: ???title???</title>
     <link href="/favicon.png" rel="icon" sizes="192x192" type="image/png">
     <link rel="stylesheet" href="https://srfi.schemers.org/srfi.css" type="text/css">
+    <style>
+      <!--
+      /* Names of Scheme types: boolean, pair, etc. */
+      span.type-meta { font-style: italic }
+
+      /* Channel name on IRC or similar services. */
+      span.channel { font-family: monospace }
+      -->
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
@@ -33,13 +42,50 @@ SPDX-License-Identifier: MIT
     of uninterned and uniquely-named symbol implementations in Scheme is
     also provided.</p>
 
+    <h2 id="table-of-contents">Table of Contents</h2>
+
+    <ul>
+      <li><a href="#issues">Issues</a></li>
+      <li><a href="#rationale">Rationale</a></li>
+      <li><a href="#specification">Specification</a></li>
+      <li>
+        <a href="#procedures">Procedures</a>
+        <ul>
+          <li>
+            <a href="#string-to-uninterned-symbol">
+              <code>string-&gt;uninterned-symbol</code>
+            </a>
+          </li>
+          <li>
+            <a href="#symbol-interned?"><code>symbol-interned?</code></a>
+          </li>
+          <li>
+            <a href="#generate-uninterned-symbol">
+              <code>generate-uninterned-symbol</code>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#prior-art">Prior Art</a>
+        <ul>
+          <li><a href="#chezscheme">ChezScheme</a></li>
+          <li><a href="#guile">Guile</a></li>
+          <li><a href="#mit-gnu-scheme">MIT/GNU Scheme</a></li>
+        </ul>
+      </li>
+      <li><a href="#implementation">Implementation</a></li>
+      <li><a href="#acknowledgments">Acknowledgments</a></li>
+      <li><a href="#copyright">Copyright</a></li>
+    </ul>
+
 
     <h2 id="issues">Issues</h2>
 
     <p>Should uninterned symbols be readable?</p>
 
 
-    <h2>Rationale</h2>
+    <h2 id="rationale">Rationale</h2>
 
     <p>A characteristic property of symbols in Scheme is that “two symbols
     are identical (in the sense of <code>eqv?</code>) if and only if their
@@ -85,7 +131,7 @@ SPDX-License-Identifier: MIT
     <code>symbol=?</code>) to the original symbol.</p>
 
 
-    <h2>Procedures</h2>
+    <h2 id="procedures">Procedures</h2>
 
     <p id="string-to-uninterned-symbol">
     <code>(string-&gt;uninterned-symbol</code> <var>string</var><code>)</code>
