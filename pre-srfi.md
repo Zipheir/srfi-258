@@ -4,21 +4,44 @@
 
 An uninterned symbol is not the same as any other symbol, even one
 with the same name. These symbols are useful in macro programming and
-in other situations where guaranteed-unique names are needed.
+in other situations where guaranteed-unique names are needed. A survey
+of uninterned and uniquely-named symbol implementations in Scheme is
+also provided.
 
 # Issues
 
-None at present.
+Should uninterned symbols be readable?
 
 # Rationale
 
-[Briefly explain "internedness".]
+A characteristic property of symbols in Scheme is that "two symbols
+are identical (in the sense of `eqv?`) if and only if their names are
+spelled the same way" (R7RS section 6.5). Such symbols are
+traditionally known as *interned* symbols. It is sometimes useful,
+however, to create *uninterned* symbols that are different from all
+other symbols, even those with the same name.
 
-Most Scheme implementations provide uninterned symbols, and they
-are also part of the ANSI Common Lisp standard. The well-known
-`gensym` procedure, which often creates a new uninterned symbol,
-is ubiquitous (dating back to at least LISP 1.5), although its
-behavior varies widely.
+Many Scheme implementations provide uninterned symbols, and they
+are also part of the ANSI Common Lisp standard. Their use was almost
+mandatory with unhygienic macro systems (like that of Common Lisp),
+where they were used as "hidden" names that could not be accidentally
+captured. This issue is largely solved by Scheme's hygienic macro
+systems, but uninterned symbols still have their uses in Scheme macro
+programming. They can be used as unique keys shared between
+communicating macros or procedures, since there is no possibility of
+collision between uninterned and user-created symbols.
+
+The traditional way to
+create a unique symbol is through a
+`gensym` procedure. The name of this procedure is ubiquitous: it dates
+back to at least LISP 1.5, and a variant of `gensym` is provided by
+almost every Scheme implementation.
+Unsurprisingly, the behavior of `gensym` procedures varies widely; in
+particular, many `gensym`s return interned symbols (see
+the Prior Art section below for details). To increase compatibility with
+existing implementations, this document specifies another constructor,
+`string->uninterned-symbol`, which is consistent across the Scheme
+implementations that provide it.
 
 # Specification
 
@@ -37,8 +60,29 @@ in R7RS section 6.5: if an uninterned symbol is written out with
 
 Returns an uninterned symbol with a name given by *string*.
 
+(symbol-interned? symbol) -> boolean
+
+Returns #t if *symbol* is an interned (ordinary) symbol, and #f if it
+is uninterned.
+
+(generate-uninterned-symbol [prefix]) -> uninterned-symbol
+
+Returns an uninterned symbol with a name that is likely to be unique.
+If the optional *prefix* argument is provided and is a string / symbol,
+then *prefix* / the name of *prefix* is prepended to the resulting
+symbol's name.
+
+Rationale:
+
+`generate-uninterned-symbol` duplicates the behavior of `gensym` in
+Scheme implementations that provide uninterned symbols (and in which
+`gensym` returns an uninterned symbol).
+
 
 ## Prior Art
+
+The following table summarizes existing support for uninterned symbols
+and related objects in Scheme.
 
 ### ChezScheme
 
@@ -54,25 +98,6 @@ Chez's `gensym` procedure takes optional *pretty-name* and
 name of one gensym to be given to another; thus, distinct gensyms that
 are equal in the sense of `symbol=?` can be created in Chez.
 
-
-### CHICKEN
-
-CHICKEN provides uninterned symbols, created by `gensym` or
-`string->uninterned-symbol`. CHICKEN's `gensym` takes an
-optional *prefix* argument, which may be a string or a symbol.
-
-
-### Cyclone
-
-Cyclone provides a (currently undocumented) `gensym` procedure.
-
-
-### Gambit
-
-Gambit provides uninterned symbols created by `gensym` or
-`string->uninterned-symbol`. `gensym` accepts a symbol prefix argument.
-
-
 ### Guile
 
 Guile provides uninterned symbols, but these are not created by
@@ -84,27 +109,9 @@ accepts an optional prefix argument.
 
 ### MIT/GNU Scheme
 
-* generate-uninterned-symbol
-* string->uninterned-symbol
+No way to tell interned and uninterned symbols apart.
 
-Notes: generate-uninterned-symbol is functionally equivalent to the
-gensym procedures of other implementations. It may take an *object*
-argument which is used in several ways. A string or symbol argument is
-used as a prefix. No way to tell interned and uninterned symbols
-apart.
-
-
-### Racket
-
-Racket provides a `gensym` procedure which returns an uninterned
-symbol. It accepts an optional prefix argument, which may be a string
-or a symbol.
-
-
-### TinySCHEME
-
-TinySCHEME provides a `gensym` procedure which returns an interned
-symbol.
+Uninterned symbols are unreadable.
 
 
 # Implementation
