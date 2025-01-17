@@ -103,7 +103,7 @@ SPDX-License-Identifier: MIT
     symbols are traditionally known as <dfn>interned</dfn> symbols. It is
     sometimes useful, however, to create <dfn>uninterned</dfn> symbols
     that are different from all other symbols, even those with the same
-    name.</p>
+    textual name.</p>
 
     <p>Many Scheme implementations provide uninterned symbols, and they
     are also part of the ANSI Common Lisp standard. Their use is almost
@@ -129,10 +129,14 @@ SPDX-License-Identifier: MIT
 
     <h2 id="specification">Specification</h2>
 
+    <p>In this document, a symbol’s <dfn>textual name</dfn> refers to
+    the string returned when <code>symbol-&gt;string</code> is invoked
+    on the symbol.</p>
+
     <p>An uninterned symbol is a symbol (in the sense of
     <code>symbol?</code>) which is not identical (in the sense of
     <code>symbol=?</code>) with any other symbol, even a symbol with the
-    same name.</p>
+    same textual name.</p>
 
     <p>Uninterned symbols do not support the write/read invariance
     described in <cite>R7RS</cite> section 6.5: if an uninterned symbol is
@@ -147,7 +151,7 @@ SPDX-License-Identifier: MIT
     <code>(string-&gt;uninterned-symbol</code> <var>string</var><code>)</code>
     → <span class="type-meta">uninterned-symbol</span></p>
 
-    <p>Returns an uninterned symbol with a name given by <var>string</var>.</p>
+    <p>Returns an uninterned symbol with a textual name given by <var>string</var>.</p>
 
     <p id="symbol-interned"><code>(symbol-interned?</code> <var>symbol</var>
     <code>)</code> → <span class="type-meta">boolean</span></p>
@@ -159,7 +163,7 @@ SPDX-License-Identifier: MIT
     [<var>prefix</var>]<code>)</code> →
     <span class="type-meta">uninterned-symbol</span></p>
 
-    <p>Returns an uninterned symbol with a name that is likely to be
+    <p>Returns an uninterned symbol with a textual name that is likely to be
     unique. If the optional <var>prefix</var> argument is provided and is a
     string / symbol, then <var>prefix</var> / the name of <var>prefix</var> is
     prepended to the resulting symbol’s name.</p>
