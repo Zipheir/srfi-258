@@ -177,7 +177,7 @@ SPDX-License-Identifier: MIT
     <var class="syn">identifier</var> is the class of valid Scheme
     identifiers defined in <cite>R7RS</cite> §7.1.1. Example:</p>
 
-    <pre class="example"><code>(symbol? :|srfi|)</code> ⇒ <code>#t
+    <pre class="example"><code>(symbol-&gt;string :|srfi|)</code> ⇒ <code>"srfi"
 (symbol-interned? :|srfi|)</code> ⇒ <code>#f</code></pre>
 
     <p>More formally, this SRFI extends the syntax of Scheme as described
