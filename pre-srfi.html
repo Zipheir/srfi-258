@@ -213,7 +213,7 @@ SPDX-License-Identifier: MIT
       <tbody>
         <tr>
           <td>Bigloo</td>
-          <td class="no">No?</td>
+          <td class="no">No</td>
           <td class="yes">Yes</td>
           <td>String or symbol</td>
           <td class="yes">Yes</td>
@@ -269,9 +269,9 @@ SPDX-License-Identifier: MIT
         <tr>
           <td>Kawa</td>
           <td class="no">No</td>
-          <td class="no">No</td>
+          <td class="no">No*</td>
           <td class="na">n/a</td>
-          <td class="yes">Yes (gentemp)</td>
+          <td class="na">n/a</td>
           <td class="no">No</td>
         </tr>
         <tr>
@@ -293,7 +293,7 @@ SPDX-License-Identifier: MIT
         <tr>
           <td>MIT/GNU Scheme</td>
           <td class="yes">Yes</td>
-          <td class="no">No</td>
+          <td class="no">No†</td>
           <td class="na">n/a</td>
           <td class="na">n/a</td>
           <td class="yes">Yes</td>
@@ -316,6 +316,16 @@ SPDX-License-Identifier: MIT
       </tbody>
     </table>
 
+    <p>*: Kawa includes a
+    <a href="https://www.gnu.org/software/kawa/Macros.html#idm45230724012608">
+    zero-argument <code>gentemp</code> procedure</a> that returns an interned
+    symbol.</p>
+
+    <p>†: MIT/GNU Scheme provides
+    <a href="https://web.mit.edu/scheme/scheme_v9.2/doc/mit-scheme-ref/Symbols.html">generate-uninterned-symbol</a>,
+    an extended version of
+    <a href="#generate-uninterned-symbol">the procedure described
+    above.</a></p>
 
     <h3 id="chezscheme">ChezScheme</h3>
 
