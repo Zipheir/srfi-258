@@ -23,6 +23,10 @@ SPDX-License-Identifier: MIT
       var.syn:after  { content: "\27E9"; }
 
       pre.example { margin-left: 2em; }
+
+      td.yes { background-color: LightGreen; }
+      td.no { background-color: LightSalmon; }
+      td.na { background-color: LightGray; }
       -->
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -209,105 +213,105 @@ SPDX-License-Identifier: MIT
       <tbody>
         <tr>
           <td>Bigloo</td>
-          <td>No?</td>
-          <td>Yes</td>
+          <td class="no">No?</td>
+          <td class="yes">Yes</td>
           <td>String or symbol</td>
-          <td>Yes</td>
-          <td>No</td>
+          <td class="yes">Yes</td>
+          <td class="no">No</td>
         </tr>
         <tr>
           <td>ChezScheme</td>
-          <td>No</td>
-          <td>Yes</td>
+          <td class="no">No</td>
+          <td class="yes">Yes</td>
           <td>String</td>
-          <td>Yes</td>
-          <td>No</td>
+          <td class="yes">Yes</td>
+          <td class="no">No</td>
         </tr>
         <tr>
           <td>CHICKEN</td>
-          <td>Yes</td>
-          <td>Yes</td>
+          <td class="yes" class="yes">Yes</td>
+          <td class="yes">Yes</td>
           <td>String or symbol</td>
-          <td>No</td>
-          <td>Yes</td>
+          <td class="no">No</td>
+          <td class="yes">Yes</td>
         </tr>
         <tr>
           <td>Cyclone</td>
-          <td>No</td>
-          <td>Yes</td>
+          <td class="no" class="no">No</td>
+          <td class="yes">Yes</td>
           <td>String or symbol</td>
-          <td>Yes</td>
-          <td>No</td>
+          <td class="yes">Yes</td>
+          <td class="no">No</td>
         </tr>
         <tr>
           <td>Gambit</td>
-          <td>Yes</td>
-          <td>Yes</td>
+          <td class="yes">Yes</td>
+          <td class="yes">Yes</td>
           <td>Symbol</td>
-          <td>No</td>
-          <td>Yes</td>
+          <td class="no">No</td>
+          <td class="yes">Yes</td>
         </tr>
         <tr>
           <td>Guile</td>
-          <td>Yes</td>
-          <td>Yes</td>
+          <td class="yes">Yes</td>
+          <td class="yes">Yes</td>
           <td>String</td>
-          <td>Yes</td>
-          <td>No</td>
+          <td class="yes">Yes</td>
+          <td class="no">No</td>
         <tr>
           <td>Ikarus</td>
-          <td>No</td>
-          <td>Yes</td>
+          <td class="no">No</td>
+          <td class="yes">Yes</td>
           <td>String</td>
-          <td>Yes</td>
-          <td>No</td>
+          <td class="yes">Yes</td>
+          <td class="no">No</td>
         </tr>
         <tr>
           <td>Kawa</td>
-          <td>No</td>
-          <td>No</td>
-          <td>EMPTY</td>
-          <td>Yes (gentemp)</td>
-          <td>No</td>
+          <td class="no">No</td>
+          <td class="no">No</td>
+          <td class="na">n/a</td>
+          <td class="yes">Yes (gentemp)</td>
+          <td class="no">No</td>
         </tr>
         <tr>
           <td>Larceny</td>
-          <td>Yes</td>
-          <td>Yes</td>
+          <td class="yes">Yes</td>
+          <td class="yes">Yes</td>
           <td>String</td>
-          <td>No</td>
-          <td>No</td>
+          <td class="no">No</td>
+          <td class="no">No</td>
         </tr>
         <tr>
           <td>Loko</td>
-          <td>Yes</td>
-          <td>Yes</td>
-          <td>No</td>
-          <td>No</td>
-          <td>No</td>
+          <td class="yes">Yes</td>
+          <td class="yes">Yes</td>
+          <td>None</td>
+          <td class="no">No</td>
+          <td class="no">No</td>
         </tr>
         <tr>
           <td>MIT/GNU Scheme</td>
-          <td>Yes</td>
-          <td>No</td>
-          <td>EMPTY</td>
-          <td>EMPTY</td>
-          <td>Yes</td>
+          <td class="yes">Yes</td>
+          <td class="no">No</td>
+          <td class="na">n/a</td>
+          <td class="na">n/a</td>
+          <td class="yes">Yes</td>
         <tr>
           <td>Racket</td>
-          <td>Yes</td>
-          <td>Yes</td>
+          <td class="yes">Yes</td>
+          <td class="yes">Yes</td>
           <td>String or symbol</td>
-          <td>No</td>
-          <td>Yes</td>
+          <td class="no">No</td>
+          <td class="yes">Yes</td>
         </tr>
         <tr>
           <td>TinySCHEME</td>
-          <td>No</td>
-          <td>Yes</td>
-          <td>No</td>
-          <td>Yes</td>
-          <td>No</td>
+          <td class="no">No</td>
+          <td class="yes">Yes</td>
+          <td>None</td>
+          <td class="yes">Yes</td>
+          <td class="no">No</td>
         </tr>
       </tbody>
     </table>
