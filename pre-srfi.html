@@ -81,6 +81,7 @@ SPDX-License-Identifier: MIT
         <a href="#prior-art">Prior art</a>
         <ul>
           <li><a href="#chezscheme">ChezScheme</a></li>
+          <li><a href="#common-lisp">Common Lisp</a></li>
         </ul>
       </li>
       <li><a href="#implementation">Implementation</a></li>
@@ -338,6 +339,28 @@ SPDX-License-Identifier: MIT
     The latter argument allows the unique name of one gensym to be given
     to another; thus, distinct gensyms that are equal in the sense of
     <code>symbol=?</code> can be created in Chez.</p>
+
+    <h3 id="common-lisp">Common Lisp</h3>
+
+    <p>Uninterned symbols are used extensively in Common Lisp macro
+    programming. The Common Lisp
+    HyperSpec specifies
+    <a href="http://clhs.lisp.se/Body/f_mk_sym.htm#make-symbol"><code>MAKE-SYMBOL</code></a>
+    (analogous to <code>string->uninterned-symbol</code>) and
+    <a href="http://clhs.lisp.se/Body/f_gensym.htm#gensym"><code>GENSYM</code></a>
+    procedures that construct uninterned symbols. The names of the
+    symbols returned by <code>GENSYM</code> usually include the value
+    of <code>*GENSYM-COUNTER*</code>, a non-negative integer variable,
+    which is incremented by each call to <code>GENSYM</code>. (This
+    behavior can be circumvented by providing an explicit suffix to
+    <code>GENSYM</code>. See the CLHS for details.)</p>
+
+    <p>Since Common Lisp does not have Scheme’s distinction between
+    symbols and identifiers, the implications of internedness are
+    much broader in Common Lisp. For example, objects named by
+    uninterned symbols are, in effect, private to the package in
+    which they were defined. A full discussion of uninterned symbols
+    in Common Lisp is beyond the scope of this SRFI.</p>
 
 
     <h2 id="implementation">Implementation</h2>
