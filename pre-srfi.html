@@ -177,7 +177,17 @@ SPDX-License-Identifier: MIT
     <p><code>generate-uninterned-symbol</code> duplicates the behavior of
     <code>gensym</code> in Scheme implementations that provide uninterned
     symbols (and in which <code>gensym</code> returns an uninterned
-    symbol).</p>
+    symbol).
+
+    <h4>Implementation (informational discussion):</h4>
+
+    <p>Following <a href="#common-lisp">Common Lisp</a>, many
+    <code>gensym</code> implementations use a non-negative integer
+    counter, a representation of the value of which is appended to
+    the name of the returned symbol. Each call to <code>gensym</code>
+    increments this counter. Other implementations use Universally
+    Unique Identifiers (UUIDs) (ITU-T Rec. X.667, ISO/IEC
+    9834-8:2014) as names.</p>
 
 
     <h2 id="lexical-syntax">Lexical syntax</h2>
@@ -384,6 +394,14 @@ SPDX-License-Identifier: MIT
     <p>A portable implementation of uninterned symbols is impossible. See the
     table above for a list of Scheme implementations that provide
     uninterned symbols and <code>string-&gt;uninterned-symbol</code>.</p>
+
+    <p>Many Scheme implementations maintain a table of symbols, indexed
+    by name. When a symbol is created, its name is looked up in this
+    table; if a symbol with that name exists, it is returned;
+    otherwise, a fresh symbol is added to the table. In implementations
+    that use this or a similar strategy, uninterned symbols may be
+    provided by simply skipping the table-lookup and insertion
+    steps.</p>
 
 
     <h2 id="acknowledgments">Acknowledgments</h2>
