@@ -23,6 +23,7 @@ SPDX-License-Identifier: MIT
       var.syn:after  { content: "\27E9"; }
 
       pre.example { margin-left: 2em; }
+      pre.grammar { font-family: serif; }
 
       td.yes { background-color: LightGreen; }
       td.no { background-color: LightSalmon; }
@@ -208,19 +209,19 @@ SPDX-License-Identifier: MIT
     in § 7.1 of the <cite>R7RS</cite> as follows. The following
     production is added to § 7.1.1:</p>
 
-    <pre><var class="syn">uninterned symbol</var> ⟶ <code>:|</code> <var class="syn">identifier</var> <code>|</code></pre>
+    <pre class="grammar"><var class="syn">uninterned symbol</var> ⟶ <code>:|</code> <var class="syn">identifier</var> <code>|</code></pre>
 
     <p>The following production of § 7.1.2 is extended:</p>
 
-    <pre><var class="syn">simple datum</var> ⟶ <var class="syn">boolean</var> | … | <var class="syn">uninterned symbol</var></pre>
+    <pre class="grammar"><var class="syn">simple datum</var> ⟶ <var class="syn">boolean</var> | … | <var class="syn">uninterned symbol</var></pre>
 
     <p>Similarly, in § 7.1.3:</p>
 
-    <pre><var class="syn">self-evaluating</var> ⟶ <var class="syn">boolean</var> | … | <var class="syn">uninterned symbol</var></pre>
+    <pre class="grammar"><var class="syn">self-evaluating</var> ⟶ <var class="syn">boolean</var> | … | <var class="syn">uninterned symbol</var></pre>
 
     <p>And in § 7.1.5:</p>
 
-    <pre><var class="syn">pattern datum</var> ⟶ <var class="syn">boolean</var> | … | <var class="syn">uninterned symbol</var></pre>
+    <pre class="grammar"><var class="syn">pattern datum</var> ⟶ <var class="syn">boolean</var> | … | <var class="syn">uninterned symbol</var></pre>
 
     <h2 id="prior-art">Prior art</h2>
 
