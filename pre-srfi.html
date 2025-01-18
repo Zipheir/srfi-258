@@ -115,17 +115,18 @@ SPDX-License-Identifier: MIT
     captured. This issue is largely solved by Scheme’s hygienic macro
     systems, but uninterned symbols still have their uses in Scheme macro
     programming. They can be used as unique keys shared between
-    communicating macros or procedures, since there is no possibility of
+    communicating macros or procedures, for example,
+    since there is no possibility of
     collision between uninterned and user-created symbols.</p>
 
     <p>The traditional way to create a unique symbol is through a
     <code>gensym</code> procedure. The name of this procedure is
-    ubiquitous: it dates back to at least LISP 1.5, and a variant of
+    ubiquitous: it dates back at least as far as LISP 1.5, and a variant of
     <code>gensym</code> is provided by almost every Scheme implementation.
     It should come as no surprise that the behavior of these
     <code>gensym</code> procedures varies
     widely; in particular, many <code>gensym</code>s return interned
-    symbols (see the <a href="#prior-art">Prior art</a> section
+    symbols (see the <a href="#prior-art">survey</a>
     below for details). To increase
     compatibility with existing implementations, this document specifies
     <code>generate-uninterned-symbol</code>, a <code>gensym</code>-like
