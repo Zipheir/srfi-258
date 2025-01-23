@@ -1,7 +1,7 @@
 ;;; SPDX-FileCopyrightText: 2025 Wolfgang Corcoran-Mathe
 ;;; SPDX-License-Identifier: MIT
 
-;;; SRFI ???: Uninterned symbols
+;;; SRFI 258: Uninterned symbols
 
 ;;; Wrapper implementation for ChezScheme.
 
