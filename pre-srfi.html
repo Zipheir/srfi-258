@@ -144,8 +144,14 @@ SPDX-License-Identifier: MIT
 
     <p>An uninterned symbol is a symbol (in the sense of
     <code>symbol?</code>) which is not identical (in the sense of
-    <code>symbol=?</code>) with any other symbol, even a symbol with the
-    same textual name.</p>
+    <code>symbol=?</code>) with any other symbol, even a symbol with
+    the same textual name. An uninterned symbol is “identical to
+    itself”. That is, if <var>s</var> and <var>t</var> are uninterned
+    symbols, <code>(symbol=?</code> <var>s</var>
+    <var>t</var><code>)</code> returns true if and only if <var>s</var>
+    and <var>t</var> were created by the same invocation of
+    <code>string-&gt;uninterned-symbol</code> or
+    <code>generate-uninterned-symbol</code>.</p>
 
     <p>Uninterned symbols do not support the write/read invariance
     described in <cite>R7RS</cite> section 6.5: if an uninterned symbol is
