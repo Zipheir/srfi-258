@@ -402,7 +402,9 @@ SPDX-License-Identifier: MIT
     <p>A portable implementation of uninterned symbols is impossible. In
     Scheme implementations that provide them (see the table above),
     uninterned symbols and <code>string-&gt;uninterned-symbol</code> are
-    generally compatible with this SRFI.</p>
+    generally compatible with this SRFI. A sample implementation for
+    ChezScheme and a portable test suite are included in this SRFI’s
+    repository.</p>
 
     <p>Many Scheme implementations maintain a table of symbols, indexed
     by name. When a symbol is created, its name is looked up in this
