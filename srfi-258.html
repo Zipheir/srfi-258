@@ -303,12 +303,20 @@ SPDX-License-Identifier: MIT
           <td class="yes">Yes</td>
         </tr>
         <tr>
+          <td>Gauche</td>
+          <td class="yes">Yes</td>
+          <td class="yes">Yes</td>
+          <td>String</td>
+          <td>No</td>
+          <td class="yes">Yes</td>
+        </tr>
+        <tr>
           <td>Guile</td>
           <td class="yes">Yes</td>
           <td class="yes">Yes</td>
           <td>String</td>
           <td>Yes</td>
-          <td class="no">No</td>
+          <td class="no">No*</td>
         <tr>
           <td>Ikarus</td>
           <td class="no">No</td>
@@ -320,7 +328,7 @@ SPDX-License-Identifier: MIT
         <tr>
           <td>Kawa</td>
           <td class="no">No</td>
-          <td class="no">No*</td>
+          <td class="no">No†</td>
           <td>n/a</td>
           <td>n/a</td>
           <td class="no">No</td>
@@ -344,7 +352,7 @@ SPDX-License-Identifier: MIT
         <tr>
           <td>MIT/GNU Scheme</td>
           <td class="yes">Yes</td>
-          <td class="no">No†</td>
+          <td class="no">No‡</td>
           <td>n/a</td>
           <td>n/a</td>
           <td class="yes">Yes</td>
@@ -367,12 +375,15 @@ SPDX-License-Identifier: MIT
       </tbody>
     </table>
 
-    <p>*: Kawa includes a
+    <p>*: Guile’s <code>make-symbol</code> procedure is identical to
+    <code>string-&gt;uninterned-symbol</code>.</p>
+
+    <p>†: Kawa includes a
     <a href="https://www.gnu.org/software/kawa/Macros.html#idm45230724012608">
     zero-argument <code>gentemp</code> procedure</a> that returns an interned
     symbol.</p>
 
-    <p>†: MIT/GNU Scheme provides
+    <p>‡: MIT/GNU Scheme provides
     <a href="https://web.mit.edu/scheme/scheme_v9.2/doc/mit-scheme-ref/Symbols.html">generate-uninterned-symbol</a>,
     an extended version of
     <a href="#generate-uninterned-symbol">the procedure described
