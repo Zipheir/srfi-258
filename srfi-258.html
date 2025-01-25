@@ -212,7 +212,7 @@ SPDX-License-Identifier: MIT
     identifiers defined in <cite>R7RS</cite> § 7.1.1. Example:</p>
 
     <pre class="example"><code>(symbol-&gt;string :|srfi|)</code> ⇒ <code>"srfi"
-(symbol-interned? :|srfi|)</code> ⇒ <code>#f</code></pre>
+(symbol-interned? ':|srfi|)</code> ⇒ <code>#f</code></pre>
 
     <p>More formally, this SRFI extends the syntax of Scheme as described
     in § 7.1 of the <cite>R7RS</cite> as follows. The following
@@ -224,10 +224,6 @@ SPDX-License-Identifier: MIT
 
     <pre class="grammar"><var class="syn">simple datum</var> ⟶ <var class="syn">boolean</var> | … | <var class="syn">uninterned symbol</var></pre>
 
-    <p>Similarly, in § 7.1.3:</p>
-
-    <pre class="grammar"><var class="syn">self-evaluating</var> ⟶ <var class="syn">boolean</var> | … | <var class="syn">uninterned symbol</var></pre>
-
     <p>And in § 7.1.5:</p>
 
     <pre class="grammar"><var class="syn">pattern datum</var> ⟶ <var class="syn">boolean</var> | … | <var class="syn">uninterned symbol</var></pre>
@@ -236,8 +232,7 @@ SPDX-License-Identifier: MIT
 
     <p>The <code>:|</code>…<code>|</code> syntax was chosen for its
     similarity to R7RS’s lexical syntax for identifiers and to Common
-    Lisp’s keyword syntax (like CL’s keywords, uninterned symbols are
-    “self-quoting”).</p>
+    Lisp’s keyword syntax.</p>
 
     <p>Most implementations that provide uninterned symbols do not
     offer lexical syntax for them, so there is little prior art to go
