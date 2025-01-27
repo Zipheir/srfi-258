@@ -5,7 +5,7 @@
 
 ;;; Wrapper implementation for ChezScheme.
 
-(library (uninterned-symbols)
+(library (srfi :258 uninterned-symbols)
   (export string->uninterned-symbol symbol-interned?
           generate-uninterned-symbol)
   (import (rnrs base)
