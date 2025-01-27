@@ -153,11 +153,13 @@ SPDX-License-Identifier: MIT
     <code>string-&gt;uninterned-symbol</code> or
     <code>generate-uninterned-symbol</code>.</p>
 
-    <p>Uninterned symbols do not support the write/read invariants
-    described in <cite>R7RS</cite> section 6.5: if an uninterned symbol is
-    written out with <code>write</code> and then read back in, the
-    resulting symbol is not identical (in the sense of
-    <code>symbol=?</code>) to the original symbol.</p>
+    <p>The exact external representation of an uninterned symbol is
+    unspecified, but the <code>read</code> procedure (<cite>R7RS</cite>
+    section 6.13.2) must signal an error (satisfying
+    <code>read-error?</code>) if it encounters such an external
+    representation. Thus uninterned symbols do not support the
+    write/read invariance described in <cite>R7RS</cite> section
+    6.5.</p>
 
 
     <h2 id="procedures">Procedures</h2>
