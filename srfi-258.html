@@ -53,9 +53,7 @@ SPDX-License-Identifier: MIT
     <p>An uninterned symbol is not the same as any other symbol, even one
     with the same name. These symbols are useful in macro programming and
     in other situations where guaranteed-unique names are needed.
-    A lexical syntax for uninterned symbols is described, allowing
-    uninterned literal symbols to appear in program source and macro
-    templates. A survey of uninterned and uniquely-named symbols
+    A survey of uninterned and uniquely-named symbols
     in Scheme is also provided.</p>
 
     <h2 id="table-of-contents">Table of Contents</h2>
@@ -82,7 +80,6 @@ SPDX-License-Identifier: MIT
           </li>
         </ul>
       </li>
-      <li><a href="#lexical-syntax">Lexical syntax</a></li>
       <li>
         <a href="#prior-art">Prior art</a>
         <ul>
@@ -203,43 +200,6 @@ SPDX-License-Identifier: MIT
     Unique Identifiers (UUIDs) (ITU-T Rec. X.667, ISO/IEC
     9834-8:2014) as names.</p>
 
-
-    <h2 id="lexical-syntax">Lexical syntax</h2>
-
-    <p>Uninterned symbols are written using the notation
-    <code>:|</code><var class="syn">identifier</var><code>|</code>, where
-    <var class="syn">identifier</var> belongs to the class of valid Scheme
-    identifiers defined in <cite>R7RS</cite> § 7.1.1. Example:</p>
-
-    <pre class="example"><code>(symbol-&gt;string :|srfi|)</code> ⇒ <code>"srfi"
-(symbol-interned? ':|srfi|)</code> ⇒ <code>#f</code></pre>
-
-    <p>More formally, this SRFI extends the syntax of Scheme as described
-    in § 7.1 of the <cite>R7RS</cite> as follows. The following
-    production is added to § 7.1.1:</p>
-
-    <pre class="grammar"><var class="syn">uninterned symbol</var> ⟶ <code>:|</code> <var class="syn">identifier</var> <code>|</code></pre>
-
-    <p>The following production of § 7.1.2 is extended:</p>
-
-    <pre class="grammar"><var class="syn">simple datum</var> ⟶ <var class="syn">boolean</var> | … | <var class="syn">uninterned symbol</var></pre>
-
-    <p>And in § 7.1.5:</p>
-
-    <pre class="grammar"><var class="syn">pattern datum</var> ⟶ <var class="syn">boolean</var> | … | <var class="syn">uninterned symbol</var></pre>
-
-    <h4>Rationale:</h4>
-
-    <p>The <code>:|</code>…<code>|</code> syntax was chosen for its
-    similarity to R7RS’s lexical syntax for identifiers and to Common
-    Lisp’s keyword syntax.</p>
-
-    <p>Most implementations that provide uninterned symbols do not
-    offer lexical syntax for them, so there is little prior art to go
-    on here. <a href="#chezscheme">ChezScheme</a> has lexical syntax
-    for its gensyms, but, since these are special interned symbols, it
-    would create unnecessary incompatibility to use Chez’s syntax for
-    uninterned symbols.</p>
 
     <h2 id="prior-art">Prior art</h2>
 
