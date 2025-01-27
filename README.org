@@ -12,7 +12,7 @@ keywords: [[https://srfi.schemers.org/?keywords=data-structure][Data Structure]]
 This repository hosts [[https://srfi.schemers.org/srfi-258/][SRFI 258]]: Uninterned symbols, a [[https://srfi.schemers.org/][Scheme Request for Implementation]].
 
 This SRFI is in /draft/ status.
-
+See also [[/srfi-260/][SRFI 260: Generated Symbols]].
 The full documentation for this SRFI can be found in the [[https://srfi.schemers.org/srfi-258/srfi-258.html][SRFI Document]].
 
 If you'd like to participate in the discussion of this SRFI, or report issues with it, please [[https://srfi.schemers.org/srfi-258/][join the SRFI-258 mailing list]] and send your message there.
