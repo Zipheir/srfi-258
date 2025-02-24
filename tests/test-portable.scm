@@ -1,7 +1,7 @@
 ;;; SPDX-FileCopyrightText: 2025 Wolfgang Corcoran-Mathe
 ;;; SPDX-License-Identifier: MIT
 
-;;; Portable SRFI 64 test suite for SRFI ???: Uninterned symbols.
+;;; Portable SRFI 64 test suite for SRFI 258 Uninterned symbols.
 
 ;;; Test runner
 
@@ -44,7 +44,7 @@
 
 ;;; Test suite
 
-(test-begin "SRFI ???: Uninterned symbols")
+(test-begin "SRFI 258 Uninterned symbols")
 
 (test-assert "Usym is symbol? (S->US)"
   (symbol? (string->uninterned-symbol "x")))
