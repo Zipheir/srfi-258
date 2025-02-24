@@ -62,6 +62,7 @@ SPDX-License-Identifier: MIT
     <ul>
       <li><a href="#issues">Issues</a></li>
       <li><a href="#rationale">Rationale</a></li>
+      <li><a href="#caveats">Caveats</a></li>
       <li><a href="#specification">Specification</a></li>
       <li>
         <a href="#procedures">Procedures</a>
@@ -136,6 +137,20 @@ SPDX-License-Identifier: MIT
     another constructor, <code>string-&gt;uninterned-symbol</code>, which
     is consistent across the Scheme implementations that provide it.</p>
 
+    <h2 id="caveats">Caveats</h2>
+
+    <p>Adding uninterned symbols to a Scheme implementation changes the
+    semantics of symbols materially. They break the defining property of
+    symbols, namely, that two symbols are the same if they have the same
+    name. In the presence of uninterned symbols, symbol
+    equality (and thus general object equality in the senses of
+    <code>eqv?</code> and <code>equal?</code>) becomes harder to specify.
+    (An attempt is made below.)</p>
+
+    <p>Uninterned symbols have a long history in Lisp and Scheme, and
+    their behavior is mostly consistent across the Scheme implementations
+    that provide them. Nevertheless, the author of this SRFI is not sure
+    whether their benefits outweigh their drawbacks.</p>
 
     <h2 id="specification">Specification</h2>
 
